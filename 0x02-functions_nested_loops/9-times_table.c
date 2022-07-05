@@ -1,43 +1,44 @@
-#include "holberton.h"
+#include <stdio.h>
+#include "main.h"
 
 /**
-  * times_table - Prints the 9 times table, starting with 0
-  *
-  * Return: empty output
-  */
+ * times_table - check main
+ * Description: Write a function that prints the 9 times table, starting with 0
+ * Return: Nothing
+ */
+
 void times_table(void)
 {
-	int x, y, z, u, d;
+	long int i, j;
 
-	for (x = 0; x <= 9; x++)
+	for (i = 0; i <= 9; i++)
 	{
-		for (y = 0; y <= 9; y++)
+		for (j = 0; j <= 9; j++)
 		{
-			z = x * y;
+			int ret = i * j;
 
-			if (z > 9)
+			if (ret <= 9)
 			{
-				u = z % 10;
-				d = (z - u) / 10;
-
-				_putchar(44);
-				_putchar(32);
-				_putchar(d + '0');
-				_putchar(u + '0');
+				_putchar(ret + '0');
+				if (j < 9)
+				{
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+				}
 			}
 			else
 			{
-				if (y != 0)
+				_putchar((ret / 10) + '0');
+				_putchar((ret % 10) + '0');
+				if (j < 9)
 				{
-					_putchar(44);
-					_putchar(32);
-					_putchar(32);
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
 				}
-
-				_putchar(z + '0');
 			}
 		}
-
 		_putchar('\n');
 	}
 }
